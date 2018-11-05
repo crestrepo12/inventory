@@ -105,6 +105,45 @@ class Inventory_Screen(Inventory):
         # Closes the window after done
         self.window.destroy()
 
+
+    # Delete one product item
+    def delete_item(self):
+        self.new_screen("Delete Item")
+        self.delete_item_menu()
+
+    def delete_item_menu(self):
+        self.Entry0 = Entry(self.window)
+        self.Entry0.place(relx=0.33, rely=0.133,height=20, relwidth=0.35)
+        self.Entry0.configure(background="white")
+        self.Entry0.configure(font="TkFixedFont")
+
+        self.Label0 = Label(self.window)
+        self.Label0.place(relx=0.40, rely=0.067, height=18, width=90)
+        self.Label0.configure(text='''Product ID''')
+
+        self.Button1 = Button(self.window)
+        self.Button1.place(relx=0.36, rely=0.689, height=26, width=120)
+        self.Button1.configure(activebackground=_actioncolor)
+        self.Button1.configure(background=_btncolor)
+        self.Button1.configure(command=self.delete)
+        self.Button1.configure(text='''Delete''')
+
+    # -------------------------
+
+    def delete(self, delete_one_item=True):
+        id = int(self.Entry0.get())
+        if delete_one_item:
+            self.delete_product(id)
+        else:
+            self.delete_all_inventory()
+
+        # Closes the window after done
+        self.window.destroy()
+
+    # -------------------------
+
+
+
     # Closes the main Window
     def quit(self):
         self.main_window.destroy()
@@ -192,7 +231,7 @@ class GUI:
         self.Button4.place(relx=0.433, rely=0.599, height=26, width=120)
         self.Button4.configure(background=_btncolor)
         self.Button4.configure(activebackground=_actioncolor)
-        self.Button4.configure(command=inventory_screen.display_inventory_items)
+        self.Button4.configure(command=inventory_screen.delete_item)
         self.Button4.configure(text='''Delete a Product''')
 
         self.Button5 = Button(top)
