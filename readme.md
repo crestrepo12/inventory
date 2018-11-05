@@ -7,33 +7,42 @@ Product Inventory Project - manages an inventory of products.
  - Deleting products
  - Clearing the whole inventory store
 
+
 ## Getting Started
 
 * fork this repo
 * clone the repo:
+
     `git clone git@github.com:crestrepo12/inventory.git`
 
-* navigate to inventory folder and install tkinter on linux/ubuntu
+* navigate to inventory folder and install tkinter on linux/ubuntu:
+
     `cd inventory && sudo apt-get install python python3-tk`
 
 
 ### Figures
 
-![startup-image](./assets/startup_image.png)
-##### fig 1. The Landing Page.
+![startup image](assets/startup_image.png)
+##### fig 1. When the program starts.
 
 
-![adding-new-item](assets/adding_new_item.png)
+![adding a new item](assets/adding_new_item.png)
 ##### fig 2. Adding a new item to inventory.
+
+
+![displaying items in inventory](assets/displaying_inventory.png)
+##### fig 2. Display items in inventory.
 
 
 ### Built With
 * ptyhon3
 * tkinter 
 
+
 ## Credits
 * [Carolina](https://github.com/crestrepo12)
 * [Renaldo](https://github.com/renisalcedo)
+
 
 ### License
 
