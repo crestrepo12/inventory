@@ -31,7 +31,7 @@ Product Inventory Project - manages an inventory of products.
 
 
 ![displaying items in inventory](assets/displaying_inventory.png)
-##### fig 2. Display items in inventory.
+##### fig 3. Display items in inventory.
 
 
 ### Built With
