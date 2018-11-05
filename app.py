@@ -142,8 +142,6 @@ class Inventory_Screen(Inventory):
 
     # -------------------------
 
-
-
     # Closes the main Window
     def quit(self):
         self.main_window.destroy()
