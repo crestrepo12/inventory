@@ -21,17 +21,18 @@ class Inventory_Screen(Inventory):
         self.new_screen("All Inventory Items", "600x400")
         self.all_items_list()
 
-        for items in self.inventory_store:
+        for products in self.inventory_store:
             # Grabs all items added to inventory
-            id, product_name, price, quantity, total_price = items.get_items()
+            products.get_items()
 
             # Creates String to display on list
             display_text = "ID: {}  Product Name: {}  Price: {}  Quantity: {}  Total Price: {}".format(
-                id, product_name, price, quantity, total_price
+                products.id, products.product_name, products.price_per_unit, products.quantity, products.total_product_price()
             )
 
             # Adds all items to list to display
-            self.Items_list.insert(id, display_text)
+            self.Items_list.insert(products.id, display_text)
+
             
     def all_items_list(self):
         self.Items_list = Listbox(self.window)
@@ -46,12 +47,12 @@ class Inventory_Screen(Inventory):
 
     def done(self):
         # Data    
-        produc_name = self.Entry1.get()
-        price = int(self.Entry2.get())
+        product_name = self.Entry1.get()
+        price_per_unit = int(self.Entry2.get())
         quantity = int(self.Entry3.get())
 
         # Creates new item into inventory with input
-        self.add_to_inventory(produc_name, price, quantity)
+        self.add_to_inventory(product_name, price_per_unit, quantity)
 
         # Closes the window after done
         self.window.destroy()
