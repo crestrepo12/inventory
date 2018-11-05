@@ -46,7 +46,7 @@ class Inventory(Product):
         for products in self.inventory_store:
             print(products.get_items())
 
-        print("-----------------")
+        # print("-----------------")
 
     #Update item in inventory
     def update_product(self, selected_id, new_price, new_quantity):
@@ -66,4 +66,4 @@ class Inventory(Product):
       self.inventory_store = []
       self.id = 1
       print("Inventory has been deleted!")
-      print("-----------------")
+      # print("-----------------")
