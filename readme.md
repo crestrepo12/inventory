@@ -35,7 +35,7 @@ Product Inventory Project - manages an inventory of products.
 
 
 ### Built With
-* ptyhon3
+* python3
 * tkinter 
 
 
