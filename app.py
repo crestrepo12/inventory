@@ -33,7 +33,6 @@ class Inventory_Screen(Inventory):
             # Adds all items to list to display
             self.Items_list.insert(products.id, display_text)
 
-            
     def all_items_list(self):
         self.Items_list = Listbox(self.window)
         self.Items_list.place(relx=0.033, rely=0.067, relheight=0.889 , relwidth=0.935)
@@ -48,49 +47,13 @@ class Inventory_Screen(Inventory):
     # Updating an item
     def update_item(self):
         self.new_screen("Update Item")
-        self.update_item_menu()
-
-    def update_item_menu(self):
-        self.Entry0 = Entry(self.window)
-        self.Entry0.place(relx=0.33, rely=0.133,height=20, relwidth=0.35)
-        self.Entry0.configure(background="white")
-        self.Entry0.configure(font="TkFixedFont")
-
-        self.Label0 = Label(self.window)
-        self.Label0.place(relx=0.40, rely=0.067, height=18, width=90)
-        self.Label0.configure(text='''Product ID''')
-
-        self.Label2 = Label(self.window)
-        self.Label2.place(relx=0.40, rely=0.244, height=18, width=85)
-        self.Label2.configure(text='''Price per unit''')
-
-        self.Entry2 = Entry(self.window)
-        self.Entry2.place(relx=0.33, rely=0.311,height=20, relwidth=0.35)
-        self.Entry2.configure(background="white")
-        self.Entry2.configure(font="TkFixedFont")
-
-        self.Label3 = Label(self.window)
-        self.Label3.place(relx=0.43, rely=0.422, height=18, width=56)
-        self.Label3.configure(text='''Quantity''')
-
-        self.Entry3 = Entry(self.window)
-        self.Entry3.place(relx=0.33, rely=0.489,height=20, relwidth=0.35)
-        self.Entry3.configure(background="white")
-        self.Entry3.configure(font="TkFixedFont")
-
-        self.Button1 = Button(self.window)
-        self.Button1.place(relx=0.36, rely=0.689, height=26, width=120)
-        self.Button1.configure(activebackground=_actioncolor)
-        self.Button1.configure(background=_btncolor)
-        self.Button1.configure(command=self.done_update)
-        self.Button1.configure(text='''Done''')
+        self.update_item_menu() 
 
     def done_update(self):
         return self.done(False)
 
     def done(self,add_item = True):
         # Data    
-        # product_name = self.Entry1.get()
         price_per_unit = int(self.Entry2.get())
         quantity = int(self.Entry3.get())
 
@@ -105,42 +68,24 @@ class Inventory_Screen(Inventory):
         # Closes the window after done
         self.window.destroy()
 
-
     # Delete one product item
     def delete_item(self):
         self.new_screen("Delete Item")
         self.delete_item_menu()
 
-    def delete_item_menu(self):
-        self.Entry0 = Entry(self.window)
-        self.Entry0.place(relx=0.33, rely=0.133,height=20, relwidth=0.35)
-        self.Entry0.configure(background="white")
-        self.Entry0.configure(font="TkFixedFont")
-
-        self.Label0 = Label(self.window)
-        self.Label0.place(relx=0.40, rely=0.067, height=18, width=90)
-        self.Label0.configure(text='''Product ID''')
-
-        self.Button1 = Button(self.window)
-        self.Button1.place(relx=0.36, rely=0.689, height=26, width=120)
-        self.Button1.configure(activebackground=_actioncolor)
-        self.Button1.configure(background=_btncolor)
-        self.Button1.configure(command=self.delete)
-        self.Button1.configure(text='''Delete''')
-
-    # -------------------------
+    def delete_all_items(self):
+        return self.delete(False)
 
     def delete(self, delete_one_item=True):
-        id = int(self.Entry0.get())
         if delete_one_item:
+            id = int(self.Entry0.get())
             self.delete_product(id)
         else:
             self.delete_all_inventory()
+            self
 
         # Closes the window after done
         self.window.destroy()
-
-    # -------------------------
 
     # Closes the main Window
     def quit(self):
@@ -186,6 +131,58 @@ class Inventory_Screen(Inventory):
         self.Button1.configure(background=_btncolor)
         self.Button1.configure(command=self.done)
         self.Button1.configure(text='''Done''')
+
+    def update_item_menu(self):
+        self.Entry0 = Entry(self.window)
+        self.Entry0.place(relx=0.33, rely=0.133,height=20, relwidth=0.35)
+        self.Entry0.configure(background="white")
+        self.Entry0.configure(font="TkFixedFont")
+
+        self.Label0 = Label(self.window)
+        self.Label0.place(relx=0.40, rely=0.067, height=18, width=90)
+        self.Label0.configure(text='''Product ID''')
+
+        self.Label2 = Label(self.window)
+        self.Label2.place(relx=0.40, rely=0.244, height=18, width=85)
+        self.Label2.configure(text='''Price per unit''')
+
+        self.Entry2 = Entry(self.window)
+        self.Entry2.place(relx=0.33, rely=0.311,height=20, relwidth=0.35)
+        self.Entry2.configure(background="white")
+        self.Entry2.configure(font="TkFixedFont")
+
+        self.Label3 = Label(self.window)
+        self.Label3.place(relx=0.43, rely=0.422, height=18, width=56)
+        self.Label3.configure(text='''Quantity''')
+
+        self.Entry3 = Entry(self.window)
+        self.Entry3.place(relx=0.33, rely=0.489,height=20, relwidth=0.35)
+        self.Entry3.configure(background="white")
+        self.Entry3.configure(font="TkFixedFont")
+
+        self.Button1 = Button(self.window)
+        self.Button1.place(relx=0.36, rely=0.689, height=26, width=120)
+        self.Button1.configure(activebackground=_actioncolor)
+        self.Button1.configure(background=_btncolor)
+        self.Button1.configure(command=self.done_update)
+        self.Button1.configure(text='''Done''')        
+
+    def delete_item_menu(self):
+        self.Entry0 = Entry(self.window)
+        self.Entry0.place(relx=0.33, rely=0.133,height=20, relwidth=0.35)
+        self.Entry0.configure(background="white")
+        self.Entry0.configure(font="TkFixedFont")
+
+        self.Label0 = Label(self.window)
+        self.Label0.place(relx=0.40, rely=0.067, height=18, width=90)
+        self.Label0.configure(text='''Product ID''')
+
+        self.Button1 = Button(self.window)
+        self.Button1.place(relx=0.36, rely=0.689, height=26, width=120)
+        self.Button1.configure(activebackground=_actioncolor)
+        self.Button1.configure(background=_btncolor)
+        self.Button1.configure(command=self.delete)
+        self.Button1.configure(text='''Delete''')
 
 class GUI:
     def __init__(self, top=None):
@@ -236,7 +233,7 @@ class GUI:
         self.Button5.place(relx=0.433, rely=0.721, height=26, width=120)
         self.Button5.configure(background=_btncolor)
         self.Button5.configure(activebackground=_actioncolor)
-        self.Button5.configure(command=inventory_screen.display_inventory_items)
+        self.Button5.configure(command=inventory_screen.delete_all_items)
         self.Button5.configure(text='''Delete Inventory''')
 
         self.Button6 = Button(top)

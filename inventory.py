@@ -22,7 +22,6 @@ class Product:
 
 # ---------------------------------------
 
-
 class Inventory(Product):
     def __init__(self):
         self.id = 1
@@ -46,8 +45,6 @@ class Inventory(Product):
         for products in self.inventory_store:
             print(products.get_items())
 
-        # print("-----------------")
-
     #Update item in inventory
     def update_product(self, selected_id, new_price, new_quantity):
       for product in self.inventory_store:
@@ -66,4 +63,3 @@ class Inventory(Product):
       self.inventory_store = []
       self.id = 1
       print("Inventory has been deleted!")
-      # print("-----------------")
